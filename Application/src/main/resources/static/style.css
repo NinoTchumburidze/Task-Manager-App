@@ -1,0 +1,423 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100%;
+}
+
+.background {
+    background: linear-gradient(to bottom, #b195f5, #d7c7fa);
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Background */
+.background2 {
+    background: linear-gradient(to bottom, #b195f5, #d7c7fa);
+    background-image: url('background2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#welcomeBox {
+
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #efe9fa;
+    font-weight: bold;
+    font-size: 23px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 50%;
+    position: absolute; /* Absolute positioning to control placement */
+    top: 20px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Precisely center the element */
+}
+
+
+#tasksOfTodayTitle {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #f5e9ff;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    width: 30%;
+    height: 50px;
+    position: absolute;
+    bottom: 20px; /* Place it at the bottom */
+    left: 0;
+    top: 25%;
+    transform: translateX(0);
+}
+
+
+#tasksOfTodayBox {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #905cff;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    width: 30%;
+    height: 400px;
+    position: absolute;
+    bottom: 20px; /* Place it at the bottom */
+    left: 0;
+    top: 40%;
+    transform: translateX(0);
+}
+#newTask {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #905cff;
+    font-weight: bold;
+    font-size: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    width: 30%;
+    height: 300px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center the content vertically */
+    align-items: center;
+}
+#newTask p {
+    margin-top: 10px;
+}
+
+
+#newTaskButton {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #7c50c7;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    margin-top: 10px; /* Adds space above the button */
+}
+
+#newTaskButton:hover {
+    background-color: #b195f5; /* Add hover effect */
+    color: white;
+}
+
+#allTasks {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #905cff;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    width: 30%;
+    height: 500px;
+    position: absolute;
+    top: 25%;
+    right: 0;  /* Place it on the right */
+    display: flex;  /* Use flexbox */
+    flex-direction: column;  /* Stack content vertically */
+    justify-content: center;  /* Center the content vertically */
+    align-items: center;  /* Center the content horizontally */
+    overflow-y: auto;  /* Make it vertically scrollable */
+}
+
+#seeAllTasks {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #7c50c7;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+#seeAllTasks:hover {
+    background-color: #b195f5;
+    color: white;
+}
+
+#currentDate {
+    border-radius: 10px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 25px;
+    color: black;  /* Ensure text color is visible */
+    background-color: rgba(255, 255, 255, 0.7);  /* Optional background color for contrast */
+    padding: 5px;
+}
+.background3 {
+    background-image: url('newTaskBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;  /* Ensure the background takes up the full viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure the div takes up the full height of the screen */
+}
+#addDesc {
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #efe9fa;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 20%;
+    position: absolute;
+    top: 20px;
+    left: 15%;
+    transform: translateX(-50%); /* Centering */
+}
+
+#descriptionBox {
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #efe9fa;
+    font-weight: bold;
+    font-size: 23px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 60%; /* Reduced width to match centering logic */
+    position: absolute;
+    top: 150px;
+    left: 35%;
+    transform: translateX(-50%); /* Centering */
+}
+
+#descriptionBox textarea {
+    width: 100%; /* Make the textarea take the full width of the container */
+    height: 100%; /* Make the textarea take the full height of the container */
+    padding: 10px; /* Optional padding inside the textarea */
+    font-size: 16px; /* Set a reasonable font size */
+    border-radius: 10px; /* Optional rounded corners */
+    border: 1px solid #ccc; /* Border for the textarea */
+    resize: none; /* Disable resizing (optional, if you don't want users to resize the box) */
+    background-color: #f7f7f7; /* Optional background color for the textarea */
+}
+
+#chooseDate{
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #efe9fa;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 20%;
+    position: absolute;
+    top: 350px;
+    left: 15%;
+    transform: translateX(-50%); /* Centering */
+}
+#taskDate{
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #efe9fa;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 20%;
+    position: absolute;
+    top: 480px;
+    left: 15%;
+    transform: translateX(-50%); /* Centering */
+}
+
+#finishTask{
+    background-color: #8f52fb;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #efe9fa;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 20%;
+    position: absolute;
+    top: 600px;
+    left: 80%;
+    transform: translateX(-50%); /* Centering */
+}
+#discard{
+    background-color: #8f52fb;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #a81c2c;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 20%;
+    position: absolute;
+    top: 600px;
+    left: 50%;
+    transform: translateX(-50%); /* Centering */
+}
+
+.background4{
+    background-image: url('background.jpg');
+    background-size: cover;  /* Ensures the image covers the entire container */
+    background-position: center;  /* Centers the background image */
+    background-repeat: no-repeat;  /* Ensures the image does not repeat */
+    padding: 20px;  /* Optional: add padding if you want space inside the container */
+    height: 100vh;  /* Ensure the div takes up the full height of the screen */
+}
+
+#listTitle{
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #efe9fa;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 40%;
+    position: absolute; /* Absolute positioning to control placement */
+    top: 20px; /* Distance from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Precisely center the element */
+}
+.task-date {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 100px;
+    color: #34495e;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.task-group {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between task items */
+}
+
+.task-item {
+    background-color: #dacbf3;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #5f4880;
+    padding: 15px 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    width: 40%;
+    text-align: left;
+}
+
+.task-item span:last-child {
+    font-size: 18px;
+}
+
+#goBack{
+    background-color: #8e7cdc;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #d8c1df;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+    backdrop-filter: blur(8px); /* Background blur effect */
+    width: 20%;
+    position: absolute;
+    top: 30px;
+    left: 15%;
+    transform: translateX(-50%); /* Centering */
+}
+.task-status {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.login-container {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    width: 300px;
+}
+
+#logOutButton {
+
+}
+
+.login-container h1 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.login-btn, .signup-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: #a288e3;
+    color: white;
+}
+
+.signup-btn {
+    background-color: #d7b3ff;
+    color: white;
+}
+

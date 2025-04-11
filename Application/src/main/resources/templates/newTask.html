@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="/script.js"></script>
+</head>
+<body>
+<div class="background3">
+  <div id = "addDesc">
+    <p>Add Task Description</p>
+
+  </div>
+
+  <form id="taskForm" action="submitTask" method="POST"> <!-- form submission action -->
+    <div id="descriptionBox">
+      <textarea id="taskDescription" name="taskDescription" placeholder="Enter task description..." rows="5" cols="50"></textarea>
+    </div>
+
+    <div id = "chooseDate">
+      <p>Choose Date</p>
+    </div>
+
+    <input type="date" id="taskDate" name="taskDate" required>
+    <button type="button" id="discard" onclick="discardTask()">Discard</button>
+
+    <button type="submit" id = "finishTask" onclick = onclick="window.location='/HomePage'">Submit Task</button>
+  </form>
+</div>
+</body>
+</html>

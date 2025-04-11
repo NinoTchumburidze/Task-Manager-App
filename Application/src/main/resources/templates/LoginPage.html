@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="background">
+    <div class="login-container">
+        <div id="message">
+            <!-- Display registration success message if available -->
+            <p th:if="${param.registrationSuccess}" style="color: green;">Registration successful! Please log in.</p>
+            <p th:unless="${param.registrationSuccess}">Welcome to Task Manager!</p>
+
+        </div>
+        <form method="post" action="/login">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Log In</button>
+            <button type="button" class="signup-btn" onclick="window.location='/createNew'">Create New Account</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
