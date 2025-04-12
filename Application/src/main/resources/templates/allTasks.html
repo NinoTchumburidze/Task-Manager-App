@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/script.js"></script>
+    <title></title>
 </head>
 <body>
+<div class="background4">
+    <div id="listTitle">
+        <p>List of All Tasks</p>
+    </div>
 
+    <div th:each="entry : ${groupedTasks}" class="task-date-group">
+        <h3 class="task-date" th:text="${#temporals.format(entry.key, 'MM/dd/yyyy')}"></h3>
+
+        <ul class="task-group">
+            <li th:each="task : ${entry.value}" class="task-item">
+                <span th:text="${task.taskDesc}"></span>
+                <img th:src="${task.taskState} ? 'marked.png' : 'notMarked.png'"
+                     class="task-status"
+                     th:data-task-id="${task.id}"
+                     th:data-status="${task.taskState}"
+                     alt=""/>
+            </li>
+        </ul>
+    </div>
+
+    <button type="button" id="goBack" onclick="window.location='/HomePage'">HomePage</button>
+</div>
 </body>
 </html>

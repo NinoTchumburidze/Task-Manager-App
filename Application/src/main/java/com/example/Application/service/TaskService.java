@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskService {
@@ -44,4 +45,11 @@ public class TaskService {
         return taskRepository.findByUser(username);
     }
 
+    public List<Task> getTasksByUsernameAndDate(String username, LocalDate date) {
+        System.out.println("Fetching tasks for " + username + " on " + date);
+
+        return getTasksByUsername(username).stream()
+                .filter(task -> task.getTaskDate().equals(date))
+                .collect(Collectors.toList());
+    }
 }

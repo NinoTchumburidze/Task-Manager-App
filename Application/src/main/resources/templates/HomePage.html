@@ -21,8 +21,14 @@
     </div>
 
     <div id="tasksOfTodayBox">
-        <p>No tasks for Today!</p>
-
+        <div th:each="task : ${todayTasks}" class="task-item">
+            <span th:text="${task.taskDesc}"></span>
+            <img th:src="${task.taskState} ? 'marked.png' : 'notMarked.png'"
+                 class="task-status"
+                 th:data-task-id="${task.id}"
+                 th:data-status="${task.taskState}"
+                 alt=""/>
+        </div>
     </div>
     <div id="newTask">
         <p>Create New Task!</p>
@@ -34,9 +40,11 @@
         <button id="seeAllTasks" type="button" onclick="window.location='/allTasks'">Load</button>
     </div>
 
-<!--    <div id="logOut">-->
-<!--        <button id="logOutButton" type="button" onclick="window.location='/LoginPage'">Log out</button>-->
-<!--    </div>-->
+    <form action="/logout" method="post" style="display:inline;">
+        <button type="submit" id="logOutButton">Logout</button>
+    </form>
+
+
 </div>
 </body>
 </html>

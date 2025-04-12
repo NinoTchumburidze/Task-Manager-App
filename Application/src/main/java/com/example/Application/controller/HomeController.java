@@ -41,7 +41,17 @@ public class HomeController {
     }
 
     @GetMapping("/HomePage")
-    public String homePage() {
+    public String homePage(HttpServletRequest request, Model model) {
+        String username = (String) request.getSession().getAttribute("username");
+
+        if (username == null) {
+            return "redirect:/login";
+        }
+
+        List<Task> todayTasks = taskService.getTasksByUsernameAndDate(username, LocalDate.now());
+        model.addAttribute("todayTasks", todayTasks);
+
+        model.addAttribute("username", username);
         return "HomePage";  // The homepage view
     }
 
@@ -49,6 +59,12 @@ public class HomeController {
     public String newTask(Model model) {
         // Logic to show the task creation page
         return "newTask";
+    }
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest httpServletRequest) {
+        // Invalidate the session to log out the user
+        httpServletRequest.getSession().invalidate();
+        return "redirect:/";
     }
     @PostMapping("/tasks/updateTaskStatus")
     @ResponseBody
@@ -62,7 +78,6 @@ public class HomeController {
 
             task.setTaskState(taskState);
             taskService.save(task);
-            System.out.println("Task updated successfully: " + task);
             return ResponseEntity.ok(task);  // JSON response
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,28 +114,24 @@ public class HomeController {
         if (userService.authenticateUser(username, password)) {
             httpServletRequest.getSession().setAttribute("username", username);
             model.addAttribute("username", username);
+            List<Task> todayTasks = taskService.getTasksByUsernameAndDate(username, LocalDate.now());
+            model.addAttribute("todayTasks", todayTasks);
 
             return "HomePage";// Redirect to welcome page if authentication is successful
         } else {
             return "LoginPage";  // Stay on the login page if authentication fails
         }
     }
-    // Handle logout request
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        // Invalidate the current session if it's active
-        request.getSession(false); // Get the current session, false means don't create a new session if one doesn't exist
-        request.getSession().invalidate(); // Invalidate the session to log the user out
 
-        return "redirect:/LoginPage"; // Redirect to the login page after logout
-    }
 
 
     @GetMapping("/home")
     public String home(HttpServletRequest httpServletRequest, Model model) {
         // Get the username from the session
         String username = (String) httpServletRequest.getSession().getAttribute("username");
-
+        List<Task> todayTasks = taskService.getTasksByUsernameAndDate(username, LocalDate.now());
+        model.addAttribute("todayTasks", todayTasks);
+        System.out.println("Today’s tasks for " + username + ": " + todayTasks.size() + " tasks found.");
         if (username == null) {
             // If the session does not contain a username, redirect to login page
 
@@ -129,8 +140,7 @@ public class HomeController {
         httpServletRequest.getSession().setAttribute("username", username);
         model.addAttribute("username", username);
 
-        List<Task> todayTasks = taskService.getTasksForToday(); // fetch today's tasks
-        model.addAttribute("todayTasks", todayTasks);
+
         return "HomePage"; // Return the homepage template
     }
 

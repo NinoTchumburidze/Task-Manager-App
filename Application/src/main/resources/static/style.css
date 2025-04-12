@@ -384,6 +384,21 @@ body, html {
 }
 
 #logOutButton {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #7c50c7;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+
+    /* Position the button in the upper right corner */
+    position: absolute;
+    top: 10px; /* Adjust this value for vertical spacing */
+    right: 10px; /* Adjust this value for horizontal spacing */
 
 }
 
